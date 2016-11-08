@@ -2,6 +2,7 @@ package com.niit.yamahaonlinebackend.DAOIMPL;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.jdbc.Expectations;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,37 +24,55 @@ public class CategoryDAOIMPL implements CategoryDAO {
 
 	@Transactional
 	public boolean save(Category category) {
+		
 		try {
+			if (get(category.getId()) != null) {
+				return false;
+			}
+
 			sessionFactory.getCurrentSession().save(category);
 			return true;
-		} catch (Exception e) {
-			System.out.println(e);
+		} 
+		
+		catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 
 	}
 
+	@Transactional
 	public boolean update(Category category) {
-		
-	try{
-		sessionFactory.getCurrentSession().update(category);
-		return true;
-	}
-	catch(Exception e)
-	{		
-System.out.println(e);
 
-		return false;
+try {
+				sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception e) {
+			System.out.println(e);
+
+			return false;
+		}
 	}
-	}
+
+	@Transactional
 	public boolean delete(Category category) {
+		try
+		{
+			sessionFactory.getCurrentSession().delete(category);
+			return true;
+		}
+		 catch (Exception e) {
+				System.out.println(e);
 
-		return false;
+				return false;
+			}
+		
+
 	}
-
+	@Transactional
 	public Category get(String id) {
 
-		return null;
+		return (Category) sessionFactory.getCurrentSession().get(Category.class,"Y001");
 	}
 
 	public List<Category> list() {

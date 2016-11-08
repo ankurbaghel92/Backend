@@ -14,27 +14,25 @@ public class CategoryTestCase {
 
 	
 	@Autowired
-	Category category;
+	static Category category;
 	
 	@Autowired
-	CategoryDAO categoryDAO;
+	static CategoryDAO categoryDAO;
 	
 	@Autowired
 	static AnnotationConfigApplicationContext context;
 	
 	@BeforeClass
 	public static void init()
-	{
-		
-		
+	{	
 		context  = new AnnotationConfigApplicationContext();
 		context.scan("com.niit");
 		context.refresh();
-		CategoryDAO categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
-		Category category = (Category) context.getBean("category");
+		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
+		category = (Category) context.getBean("category");
 	}
 	
-	@Test
+	/*@Test
 	public void CreateCategoryTestCase()
 	{
 		category.setId("Y001");
@@ -44,37 +42,38 @@ public class CategoryTestCase {
 		Assert.assertEquals("Create Category Test Case", true, status);
 		
 	}
-	
-	@Test
+	*/
+/*	@Test
 	public void DeleteCategoryTestCase()
 	{
-		category.setId("");
+		category.setId("Y001");
 		boolean status = categoryDAO.delete(category);
 		Assert.assertEquals("Delete Category Test Case", true, status);
 	
 	}
-	
-	@Test
+*/
+	/*@Test
 	public void UpdateCategoryTestCase()
 	{
-		category.setId("");
-		category.setDescription("");
+		category.setId("Y001");
+		category.setDescription("Yamaha1223");
+		category.setName("ankur");
 		boolean status = categoryDAO.update(category);
 		Assert.assertEquals("Update Category Test Case", true, status);
 		
-	}
-
+	}*/
+	
 	@Test
 	public void GetCategoryTestCase()
 	{
-		Assert.assertEquals("Get One Category Test Case", null, categoryDAO.get(""));
+		Assert.assertEquals("Get One Category Test Case", null, categoryDAO.get("Y001"));
 	}
 
-	@Test
+	/*@Test
 	public void GetAllCategoryTestCase()
 	{
 		Assert.assertEquals("Get All Category Test Case", 1, categoryDAO.list().size());
 		
 	}
-	
+*/	
 }
