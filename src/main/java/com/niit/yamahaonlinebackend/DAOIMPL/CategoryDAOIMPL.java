@@ -3,9 +3,11 @@ package com.niit.yamahaonlinebackend.DAOIMPL;
 import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.jdbc.Expectations;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,16 +26,17 @@ public class CategoryDAOIMPL implements CategoryDAO {
 
 	@Transactional
 	public boolean save(Category category) {
-		
+
 		try {
+
 			if (get(category.getId()) != null) {
 				return false;
 			}
 
 			sessionFactory.getCurrentSession().save(category);
 			return true;
-		} 
-		
+		}
+
 		catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -44,8 +47,8 @@ public class CategoryDAOIMPL implements CategoryDAO {
 	@Transactional
 	public boolean update(Category category) {
 
-try {
-				sessionFactory.getCurrentSession().update(category);
+		try {
+			sessionFactory.getCurrentSession().update(category);
 			return true;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -56,28 +59,28 @@ try {
 
 	@Transactional
 	public boolean delete(Category category) {
-		try
-		{
+		try {
 			sessionFactory.getCurrentSession().delete(category);
 			return true;
-		}
-		 catch (Exception e) {
-				System.out.println(e);
+		} catch (Exception e) {
+			System.out.println(e);
 
-				return false;
-			}
-		
+			return false;
+		}
 
 	}
+
 	@Transactional
 	public Category get(String id) {
 
-		return (Category) sessionFactory.getCurrentSession().get(Category.class,"Y001");
+		return (Category) sessionFactory.getCurrentSession().get(Category.class,id);
 	}
 
 	public List<Category> list() {
+		String hql = "FROM Category";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		return query.list();
 
-		return null;
 	}
 
 }

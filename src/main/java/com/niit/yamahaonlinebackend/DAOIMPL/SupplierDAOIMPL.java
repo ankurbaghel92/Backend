@@ -1,35 +1,86 @@
-package com.niit.yamahaonlinebackend.DAOIMPL;
+/*package com.niit.yamahaonlinebackend.DAOIMPL;
 
 import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.yamahaonlinebackend.DAO.SupplierDAO;
 import com.niit.yamahaonlinebackend.model.Supplier;
 
+@ComponentScan("supplierDAO")
 public class SupplierDAOIMPL implements SupplierDAO {
 
+	@Autowired
+	SessionFactory sessionFactory;
+
+	public SupplierDAOIMPL(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	@Transactional
 	public boolean save(Supplier supplier) {
 
-		return false;
-	}
+		try {
+			if (get(supplier.getId()) != null) {
+				return false;
 
+			}
+			sessionFactory.getCurrentSession().save(supplier);
+			return true;
+		} catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+@Transactional
 	public boolean delete(Supplier supplier) {
 
+		try {
+			if (get(supplier.getId()) == null) {
+				return false;
+			}
+			sessionFactory.getCurrentSession().delete(supplier);
+			return true;
+		}
+
+		catch (HibernateException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
-
+	@Transactional
 	public boolean udpate(Supplier supplier) {
 
-		return false;
-	}
+		try {
+			if (get(supplier.getId()) != null) {
+				return false;
+			}
+			sessionFactory.getCurrentSession().update(supplier);
+			return true;
+		}
 
+		catch (HibernateException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+@Transactional
 	public Supplier get(String Id) {
-
-		return null;
+	return (Supplier) sessionFactory.getCurrentSession().get(Supplier.class,Id);
 	}
 
+@Transactional
 	public List<Supplier> list() {
-
-		return null;
+String hql = "From Supplier";
+Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	return query.list();
 	}
 
 }
+*/

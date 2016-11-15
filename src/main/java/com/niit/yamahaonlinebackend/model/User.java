@@ -1,8 +1,19 @@
 package com.niit.yamahaonlinebackend.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
+@Entity
 @Component
+@Table(name = "User")
 public class User {
 	
 
@@ -10,18 +21,62 @@ public class User {
 		
 		System.out.println("User");
 	}
-	
-	private String fname;
+
+@NotBlank(message="Please Enter your First Name")
+@Column(name = "fname")
+private String fname;
+
+@NotBlank(message="Please Enter your Last Name")
+@Column(name = "lname")
 	private String lname;
+
+@NotBlank(message="Please Enter your Mobile Number")
+@Column(name = "mobile")
 	private String mobile;
+
+@NotBlank(message="Please Enter your Email Id")
+@Column(name = "email")
 	private String email;
+
+@NotBlank(message="Please Enter your Password")
+@Min(5)
+@Max(15)
+@Column(name = "password")
 	private String password;
-	private String address1;
-	private String address2;
-	private String city;
-	private String state;
-	private String pincode;
+
+@NotBlank(message="Please Enter the Address1 field")
+private String address1;
+
+@NotBlank(message="Please Enter the Address2 field")
+private String address2;
+
+@NotBlank(message="Please Enter the City")
+private String city;
+
+@NotBlank(message="Please Enter the State")
+private String state;
+
+@NotBlank(message="Please Enter the Pincode")
+private String pincode;
+
+
+@Column(name = "address")
+	private String address;
+
+@Id
+private String userId=email;
+
+
 	
+	
+	
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userid) {
+		this.userId = userid;
+	}
+
 	
 	public String getFname() {
 		return fname;
@@ -55,11 +110,11 @@ public class User {
 	}
 	
 	
-	public String getAddress1() {
-		return address1;
+	public String getAddress() {
+		return address;
 	}
-	public void setAddress1(String address1) {
-		this.address1 = address1;
+	public void setAddress(String address) {
+		address+= address1+" "+address2+" "+city+" "+state+" "+pincode;
 	}
 	public String getAddress2() {
 		return address2;

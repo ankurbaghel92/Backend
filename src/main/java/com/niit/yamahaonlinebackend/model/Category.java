@@ -1,7 +1,11 @@
 package com.niit.yamahaonlinebackend.model;
 
-import javax.persistence.*;
+import java.util.Set;
 
+import javax.persistence.*;
+import javax.persistence.Entity;
+
+import org.hibernate.annotations.Fetch;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -17,8 +21,10 @@ public class Category {
 	
 	@Column(name="description")
 	private String description;
-
 	
+	/*@OneToMany(mappedBy="Category",fetch =FetchType.EAGER)
+	private Set<Product> products;
+*/
 	public String getId() {
 		return Id;
 	}
@@ -43,6 +49,13 @@ public class Category {
 		this.description = description;
 	}
 
-	
+/*	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+*/
 
 }

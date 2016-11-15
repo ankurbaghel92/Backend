@@ -1,5 +1,7 @@
 package com.niit.yamahaonlinebackend.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
+@Table(name="Supplier")
 public class Supplier {
 	
 	@Id
@@ -18,6 +21,11 @@ public class Supplier {
 	@Column(name="description")
 	private String description;
 
+	
+	@OneToMany(mappedBy="Supplier",fetch=FetchType.EAGER)
+	private Set<Product> products;
+	
+	
 	public String getId() {
 		return Id;
 	}
@@ -42,6 +50,18 @@ public class Supplier {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
 	}
 	
 	
