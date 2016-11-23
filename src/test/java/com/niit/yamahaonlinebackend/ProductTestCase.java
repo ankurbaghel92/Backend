@@ -39,8 +39,8 @@ public class ProductTestCase {
 		product.setName("Product1");
 		product.setPrice(1000);
 		product.setStock(2);
-		product.setCategory_Id("C001");
-		product.setSupplier_Id("S001");
+		product.setCategory_Id("Y001");
+		product.setSupplier_Id("SUP_001");
 boolean status = productDAO.save(product);
 		Assert.assertEquals("Create Product Test Case", true, status);
 		

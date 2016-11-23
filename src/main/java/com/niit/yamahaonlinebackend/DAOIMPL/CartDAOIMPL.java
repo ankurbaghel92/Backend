@@ -1,4 +1,4 @@
-/*package com.niit.yamahaonlinebackend.DAOIMPL;
+package com.niit.yamahaonlinebackend.DAOIMPL;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.yamahaonlinebackend.DAO.CartDAO;
 import com.niit.yamahaonlinebackend.model.Cart;
 
-@ComponentScan("cartDAO")
+@Repository("cartDAO")
 public class CartDAOIMPL implements CartDAO {
 	@Autowired
 	SessionFactory sessionFactory;
@@ -55,4 +55,3 @@ public class CartDAOIMPL implements CartDAO {
 	}
 
 }
-*/

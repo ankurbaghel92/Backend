@@ -22,9 +22,9 @@ public class Category {
 	@Column(name="description")
 	private String description;
 	
-	/*@OneToMany(mappedBy="Category",fetch =FetchType.EAGER)
+	@OneToMany(mappedBy="category",fetch =FetchType.EAGER)
 	private Set<Product> products;
-*/
+
 	public String getId() {
 		return Id;
 	}
@@ -49,13 +49,13 @@ public class Category {
 		this.description = description;
 	}
 
-/*	public Set<Product> getProducts() {
+	public Set<Product> getProducts() {
 		return products;
 	}
 
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
-*/
+
 
 }

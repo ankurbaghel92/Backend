@@ -34,50 +34,41 @@ private String fname;
 @Column(name = "mobile")
 	private String mobile;
 
+@Id
 @NotBlank(message="Please Enter your Email Id")
 @Column(name = "email")
 	private String email;
 
-@NotBlank(message="Please Enter your Password")
+/*@NotBlank(message="Please Enter your Password")
 @Min(5)
 @Max(15)
-@Column(name = "password")
+*/@Column(name = "password")
 	private String password;
 
-@NotBlank(message="Please Enter the Address1 field")
-private String address1;
-
-@NotBlank(message="Please Enter the Address2 field")
-private String address2;
-
-@NotBlank(message="Please Enter the City")
-private String city;
-
-@NotBlank(message="Please Enter the State")
-private String state;
-
-@NotBlank(message="Please Enter the Pincode")
-private String pincode;
 
 
-@Column(name = "address")
-	private String address;
 
-@Id
-private String userId=email;
-
-
+private String role;
+private String ComPassword;
 	
-	
-	
-	public String getUserId() {
-		return userId;
-	}
-	public void setUserId(String userid) {
-		this.userId = userid;
-	}
 
-	
+
+
+
+
+public String getComPassword() {
+	return ComPassword;
+}
+public void setComPassword(String comPassword) {
+	ComPassword = comPassword;
+}
+public String getRole() {
+	return role;
+}
+public void setRole(String role) {
+	this.role = role;
+}
+
 	public String getFname() {
 		return fname;
 	}
@@ -110,35 +101,4 @@ private String userId=email;
 	}
 	
 	
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		address+= address1+" "+address2+" "+city+" "+state+" "+pincode;
-	}
-	public String getAddress2() {
-		return address2;
-	}
-	public void setAddress2(String address2) {
-		this.address2 = address2;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public String getPincode() {
-		return pincode;
-	}
-	public void setPincode(String pincode) {
-		this.pincode = pincode;
-	}
-
 }

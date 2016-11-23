@@ -1,15 +1,20 @@
 package com.niit.yamahaonlinebackend.model;
 
-import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
 @Entity
 @Component
-@Table(name = "UserOrder")
+@Table(name="UserOrder")
 public class UserOrder {
+	
+	public UserOrder()
+	{
+		System.out.println("UserOrder is created");
+	}
 
 	@Id
 	private String Id;
@@ -25,6 +30,8 @@ public class UserOrder {
 
 	@Column(name = "Pay_Method")
 	private String Pay_method;
+	
+	
 
 	public String getId() {
 		return Id;

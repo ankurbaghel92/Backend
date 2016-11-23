@@ -13,12 +13,11 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.niit.yamahaonlinebackend.model.BillingAddress;
 import com.niit.yamahaonlinebackend.model.Cart;
 import com.niit.yamahaonlinebackend.model.Category;
 import com.niit.yamahaonlinebackend.model.Product;
-import com.niit.yamahaonlinebackend.model.ShippingAddress;
 import com.niit.yamahaonlinebackend.model.Supplier;
+import com.niit.yamahaonlinebackend.model.User;
 import com.niit.yamahaonlinebackend.model.UserOrder;
 
 @Configuration
@@ -36,35 +35,36 @@ public class ApplicationContextConfig {
 	return (DataSource) dataSource;
 	}
 	
-	
-	//@Autowired
-	@Bean(name="sessionFactory")
-	public SessionFactory getSessionFactory(DataSource dataSource){
-		
-		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
-	sessionBuilder.addAnnotatedClass(Category.class);
-	/*	sessionBuilder.addAnnotatedClass(Supplier.class);
-		sessionBuilder.addAnnotatedClass(Product.class);
-		sessionBuilder.addAnnotatedClass(BillingAddress.class);
-		sessionBuilder.addAnnotatedClass(ShippingAddress.class);
-		sessionBuilder.addAnnotatedClass(Cart.class);
-		sessionBuilder.addAnnotatedClass(UserOrder.class);
-	*/	
-		sessionBuilder.addProperties(getHibernateProperties());
-		return sessionBuilder.buildSessionFactory();
-	}
-	
-
-	
-	
-	private Properties getHibernateProperties (){
+private Properties getHibernateProperties (){
 		
 		Properties properties = new Properties();
 		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 		return properties;
 	}
 	
-		//@Autowired
+	
+	@Autowired
+	@Bean(name="sessionFactory")
+	public SessionFactory getSessionFactory(DataSource dataSource){
+		
+		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
+	sessionBuilder.addAnnotatedClass(Category.class);
+	sessionBuilder.addAnnotatedClass(Supplier.class);
+	sessionBuilder.addAnnotatedClass(Product.class);
+	sessionBuilder.addAnnotatedClass(UserOrder.class);
+	sessionBuilder.addAnnotatedClass(User.class);
+
+	sessionBuilder.addAnnotatedClass(Cart.class);
+sessionBuilder.addProperties(getHibernateProperties());
+
+return sessionBuilder.buildSessionFactory();
+	}
+	
+
+	
+	
+	
+		@Autowired
 	@Bean(name="transactionManager")
 	public HibernateTransactionManager getTransactionalManager(SessionFactory sessionFactory){
 		

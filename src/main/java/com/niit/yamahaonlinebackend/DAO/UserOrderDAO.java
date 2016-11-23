@@ -4,8 +4,8 @@ import com.niit.yamahaonlinebackend.model.UserOrder;
 
 public interface UserOrderDAO {
 	
-	public boolean save(UserOrder userDAO);
-	public boolean delete(UserOrder userDAO);
+	public boolean save(UserOrder userorder);
+	public boolean delete(UserOrder userorder);
 	public UserOrder get(String Id);
 
 }

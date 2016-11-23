@@ -1,16 +1,13 @@
-/*package com.niit.yamahaonlinebackend.DAOIMPL;
+package com.niit.yamahaonlinebackend.DAOIMPL;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.yamahaonlinebackend.DAO.UserDAO;
 import com.niit.yamahaonlinebackend.DAO.UserOrderDAO;
 import com.niit.yamahaonlinebackend.model.UserOrder;
 
-@ComponentScan("userorderDAO")
+@Repository("userorderDAO")
 public class UserOrderDAOIMPL implements UserOrderDAO {
 
 	@Autowired
@@ -20,12 +17,12 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public boolean save(UserOrder userDAO) {
+	public boolean save(UserOrder userorder) {
 		try {
-			if (get(userDAO.getId()) != null) {
+			if (get(userorder.getId()) != null) {
 				return false;
 			}
-			sessionFactory.getCurrentSession().save(userDAO);
+			sessionFactory.getCurrentSession().save(userorder);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -34,16 +31,16 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 
 	}
 
-	public boolean delete(UserOrder userDAO) {
+	public boolean delete(UserOrder userorder) {
 		try {
-			if (get(userDAO.getId()) != null) {
+			if (get(userorder.getId()) != null) {
 				return false;
 			}
-			sessionFactory.getCurrentSession().delete(userDAO);
+			sessionFactory.getCurrentSession().delete(userorder);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return true;
+			return false;
 		}
 
 	}
@@ -53,4 +50,3 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 	}
 
 }
-*/

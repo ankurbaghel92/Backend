@@ -35,9 +35,9 @@ public class CategoryTestCase {
 	@Test
 	public void CreateCategoryTestCase()
 	{
-		category.setId("Y002");
-		category.setDescription("Yamaha5");
-		category.setName("FZ45");
+		category.setId("Y004");
+		category.setDescription("Yamaha5644");
+		category.setName("FZ4854");
 		boolean status = categoryDAO.save(category);
 		Assert.assertEquals("Create Category Test Case", true, status);
 		

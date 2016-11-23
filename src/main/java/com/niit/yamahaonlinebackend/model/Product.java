@@ -1,10 +1,11 @@
 package com.niit.yamahaonlinebackend.model;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Columns;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -12,20 +13,32 @@ import org.springframework.stereotype.Component;
 @Table(name="Product")
 public class Product {
 	
+	@Id	
 private String Id;
+	
+@Column(name="name")
 private String name;
+
+@Column(name="price")
 private int price;
+
+@Column(name="Category_Id")
 private String Category_Id;
+
+@Column(name="Supplier_Id")
 private String Supplier_Id;
+
+@Column(name="stock")
 private int stock;
 
-@ManyToOne
+@ManyToOne(fetch=FetchType.EAGER)
 @JoinColumn(name="Category_Id",updatable=false,insertable=false,nullable=false)
 private Category category;
 
-@ManyToOne
+/*@ManyToOne
 @JoinColumn(name="Supplier_Id",nullable=false,insertable=false,updatable=false)
 private Supplier supplier;
+*/
 
 
 public String getId() {

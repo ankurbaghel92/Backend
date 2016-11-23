@@ -1,26 +1,28 @@
-/*package com.niit.yamahaonlinebackend.DAOIMPL;
+package com.niit.yamahaonlinebackend.DAOIMPL;
 
 import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.yamahaonlinebackend.DAO.ProductDAO;
 import com.niit.yamahaonlinebackend.model.Product;
 
-@ComponentScan("productDAO")
+@Repository("productDAO")
 public class ProductDAOIMPL implements ProductDAO {
 	
 	@Autowired
-	SessionFactory sessionFactory;
-
+SessionFactory sessionFactory;
+	
 	public ProductDAOIMPL(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
+
+	@Transactional
 	public boolean save(Product product) {
 		try {
 			if (get(product.getId()) != null) {
@@ -75,4 +77,3 @@ public class ProductDAOIMPL implements ProductDAO {
 	}
 
 }
-*/

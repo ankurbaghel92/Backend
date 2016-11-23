@@ -1,4 +1,4 @@
-/*package com.niit.yamahaonlinebackend.DAOIMPL;
+package com.niit.yamahaonlinebackend.DAOIMPL;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.yamahaonlinebackend.DAO.SupplierDAO;
 import com.niit.yamahaonlinebackend.model.Supplier;
 
-@ComponentScan("supplierDAO")
+@Repository("supplierDAO")
 public class SupplierDAOIMPL implements SupplierDAO {
 
 	@Autowired
@@ -83,4 +83,3 @@ Query query = sessionFactory.getCurrentSession().createQuery(hql);
 	}
 
 }
-*/

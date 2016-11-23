@@ -46,7 +46,7 @@ public class CartTestCase {
 		}
 
 	
-	@Test
+	//@Test
 	public void DeleteCartTestCase()
 	{
 		cart.setId("001");
@@ -54,7 +54,7 @@ public class CartTestCase {
 		Assert.assertEquals("DeleteCartTestCase", true, status);
 	}
 	
-	@Test
+	//@Test
 	public void GetCartTestCase()
 	{
 		Assert.assertEquals("GetCartTestCase", 1, cartDAO.get("001"));
