@@ -4,8 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -39,19 +41,19 @@ private String fname;
 @Column(name = "email")
 	private String email;
 
-/*@NotBlank(message="Please Enter your Password")
-@Min(5)
-@Max(15)
-*/@Column(name = "password")
+@NotBlank(message="Please Enter your Password")
+@Size(min=5,max=10)
+@Column(name = "password")
 	private String password;
 
 
 
 
 private String role;
+
+@Transient
 private String ComPassword;
 	
-
 
 
 
@@ -62,6 +64,8 @@ public String getComPassword() {
 public void setComPassword(String comPassword) {
 	ComPassword = comPassword;
 }
+
+
 public String getRole() {
 	return role;
 }

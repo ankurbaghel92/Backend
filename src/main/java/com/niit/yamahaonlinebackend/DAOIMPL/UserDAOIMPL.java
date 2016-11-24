@@ -80,6 +80,7 @@ public class UserDAOIMPL implements UserDAO{
 	}
 	}
 	
+	@Transactional
 	public User get(String UserId) {
 return (User) sessionFactory.getCurrentSession().get(User.class, UserId) ;
 		
@@ -93,13 +94,14 @@ return (User) sessionFactory.getCurrentSession().get(User.class, UserId) ;
 	}
 
 @Transactional
-	public User IsValidUser(String username, String password) {
+	public User IsValidUser(String email, String password) {
 	try{
-		String hql = "FROM User o where o.fname= :fname and o.password= :password";
+		String hql = "FROM User o where o.email= :email and o.password= :password";
 		Query st  = sessionFactory.getCurrentSession().createQuery(hql);
-		st.setString("fname", username);
+		st.setString("email", email);
 		st.setString("password", password);
 	return (User) st.uniqueResult();
+	
 	}
 		catch(Exception e)
 		{

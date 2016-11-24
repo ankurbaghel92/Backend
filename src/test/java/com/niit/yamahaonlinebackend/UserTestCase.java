@@ -36,16 +36,16 @@ public class UserTestCase {
 		login = (Login) context.getBean("login");
 	}
 
-	//@Test
+	@Test
 	public void CreateuserTestCase() {
 
-		user.setFname("ankur1");
-		user.setLname("baghel1");
-		user.setMobile("8988980");
-		user.setEmail("asdsjk");
-		user.setPassword("baghel1");
+		user.setFname("sachin");
+		user.setLname("Tendulkar");
+		user.setMobile("112233445");
+		user.setEmail("sachin.t@gmail.com");
+		user.setPassword("SachinT");
 		//user.setAddress("pune");
-		user.setRole("User12");
+		user.setRole("User");
 		boolean status = userDAO.save(user);
 		Assert.assertEquals("Create user Test Case", true, status);
 
@@ -77,12 +77,16 @@ public class UserTestCase {
 
 	}
 
-	@Test
+	//@Test
 	public void IsValidUserTestCase()
 	{
-		Assert.assertEquals("asdsads", 1, userDAO.IsValidUser("ankur", "baghel"));
-		User u = userDAO.IsValidUser("ankur", "baghel");
-		System.out.println(userDAO.IsValidUser("ankur", "baghel"));
+/*		Assert.assertEquals("asdsads", 1, userDAO.IsValidUser("ankur", "baghel"));
+*/		User u = userDAO.IsValidUser("asdsjk", "baghel1");
+		System.out.println(u.getFname());
+		System.out.println(u.getRole());
+		System.out.println(u.getMobile());
+		System.out.println(u.getEmail());
+		System.out.println(u.getLname());
 		
 		}
 	

@@ -37,7 +37,7 @@ public class SupplierTestCase {
 	
 	
 	
-	//@Test
+	@Test
 	public void CreateSupplierTestCase()
 	{
 		supplier.setId("SUP_001");
@@ -71,7 +71,7 @@ public class SupplierTestCase {
 	Assert.assertEquals("GetSupplierTestCase",null, supplierDAO.get("SUP_001"));	
 	}
 	
-	@Test
+	//@Test
 	public void GetAllCategoryTestCase()
 	{
 		Assert.assertEquals("Get All Category Test Case", 1, supplierDAO.list().size());

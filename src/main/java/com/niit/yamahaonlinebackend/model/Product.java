@@ -35,10 +35,10 @@ private int stock;
 @JoinColumn(name="Category_Id",updatable=false,insertable=false,nullable=false)
 private Category category;
 
-/*@ManyToOne
+@ManyToOne
 @JoinColumn(name="Supplier_Id",nullable=false,insertable=false,updatable=false)
 private Supplier supplier;
-*/
+
 
 
 public String getId() {

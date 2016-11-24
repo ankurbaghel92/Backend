@@ -22,9 +22,9 @@ public class Supplier {
 	private String description;
 
 	
-	/*@OneToMany(mappedBy="Supplier",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="supplier",fetch=FetchType.EAGER)
 	private Set<Product> products;
-	*/
+	
 	
 	public String getId() {
 		return Id;
@@ -53,7 +53,7 @@ public class Supplier {
 	}
 
 
-/*
+
 	public Set<Product> getProducts() {
 		return products;
 	}
@@ -65,5 +65,5 @@ public class Supplier {
 	}
 	
 	
-*/
+
 }
