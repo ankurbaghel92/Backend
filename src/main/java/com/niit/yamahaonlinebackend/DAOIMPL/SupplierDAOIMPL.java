@@ -42,9 +42,9 @@ public class SupplierDAOIMPL implements SupplierDAO {
 	public boolean delete(Supplier supplier) {
 
 		try {
-			if (get(supplier.getId()) == null) {
+			/*if (get(supplier.getId()) == null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().delete(supplier);
 			return true;
 		}
@@ -58,9 +58,9 @@ public class SupplierDAOIMPL implements SupplierDAO {
 	public boolean udpate(Supplier supplier) {
 
 		try {
-			if (get(supplier.getId()) != null) {
+			/*if (get(supplier.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().update(supplier);
 			return true;
 		}

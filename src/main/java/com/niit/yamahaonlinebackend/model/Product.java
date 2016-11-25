@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Columns;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Component
@@ -31,6 +32,22 @@ private String Supplier_Id;
 @Column(name="stock")
 private int stock;
 
+public MultipartFile getImage() {
+	return Image;
+}
+
+public void setImage(MultipartFile image) {
+	Image = image;
+}
+
+public String getPath() {
+	return path;
+}
+
+public void setPath(String path) {
+	this.path = path;
+}
+
 @ManyToOne(fetch=FetchType.EAGER)
 @JoinColumn(name="Category_Id",updatable=false,insertable=false,nullable=false)
 private Category category;
@@ -39,6 +56,11 @@ private Category category;
 @JoinColumn(name="Supplier_Id",nullable=false,insertable=false,updatable=false)
 private Supplier supplier;
 
+@Transient
+private MultipartFile Image;
+
+@Transient
+private String path ="D:\\DT NIIT\\yamahaonline\\ProductImages";
 
 
 public String getId() {

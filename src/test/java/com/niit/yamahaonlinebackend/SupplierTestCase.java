@@ -37,17 +37,17 @@ public class SupplierTestCase {
 	
 	
 	
-	@Test
+	//@Test
 	public void CreateSupplierTestCase()
 	{
 		supplier.setId("SUP_001");
 		supplier.setName("Supplier1");
-		supplier.setDescription("Supplier");
+		supplier.setDescription("Supplier123");
 		boolean status = supplierDAO.save(supplier);
 	Assert.assertEquals("CreateSupplierTestCase", true, status);
 	}
 	
-//	@Test
+	//@Test
 	public void UpdateSupplierTestCase()
 	{
 		supplier.setId("SUP_001");
@@ -65,10 +65,12 @@ public class SupplierTestCase {
 	Assert.assertEquals("DeleteSupplierTestCase", true, status);
 	}
 	
-	//@Test
+	@Test
 	public void GetSupplierTestCase()
 	{
-	Assert.assertEquals("GetSupplierTestCase",null, supplierDAO.get("SUP_001"));	
+		Supplier supplier  = supplierDAO.get("SUP_001");
+		System.out.println(supplier.getName());
+	//Assert.assertEquals("GetSupplierTestCase",1, supplierDAO.get("SUP_001"));	
 	}
 	
 	//@Test

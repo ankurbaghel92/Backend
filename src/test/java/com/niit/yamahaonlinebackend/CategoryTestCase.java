@@ -32,7 +32,7 @@ public class CategoryTestCase {
 		category = (Category) context.getBean("category");
 	}
 	
-	@Test
+	//@Test
 	public void CreateCategoryTestCase()
 	{
 		category.setId("Y004");
@@ -43,7 +43,7 @@ public class CategoryTestCase {
 		
 	}
 	
-/*	@Test
+	@Test
 	public void DeleteCategoryTestCase()
 	{
 		category.setId("Y001");
@@ -51,8 +51,7 @@ public class CategoryTestCase {
 		Assert.assertEquals("Delete Category Test Case", true, status);
 	
 	}
-*/
-	/*@Test
+	//@Test
 	public void UpdateCategoryTestCase()
 	{
 		category.setId("Y001");
@@ -61,7 +60,7 @@ public class CategoryTestCase {
 		boolean status = categoryDAO.update(category);
 		Assert.assertEquals("Update Category Test Case", true, status);
 		
-	}*/
+	}
 	
 	//@Test
 	public void GetCategoryTestCase()
