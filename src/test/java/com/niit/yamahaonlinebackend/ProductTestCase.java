@@ -35,12 +35,12 @@ public class ProductTestCase {
 	@Test
 	public void CreateProductTestCase()
 	{
-		product.setId("P001");
-		product.setName("Product1");
+		product.setId("P002");
+		product.setName("Product2");
 		product.setPrice(1000);
 		product.setStock(2);
-		product.setCategory_Id("Y001");
-		product.setSupplier_Id("SUP_001");
+		product.setCategory_Id("Sports_001");
+		product.setSupplier_Id("Sup2");
 boolean status = productDAO.save(product);
 		Assert.assertEquals("Create Product Test Case", true, status);
 		

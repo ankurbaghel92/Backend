@@ -25,9 +25,9 @@ SessionFactory sessionFactory;
 	@Transactional
 	public boolean save(Product product) {
 		try {
-			if (get(product.getId()) != null) {
+			/*if (get(product.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().save(product);
 			return true;
 		} catch (Exception e) {
@@ -35,12 +35,12 @@ SessionFactory sessionFactory;
 			return false;
 		}
 	}
-
+@Transactional
 	public boolean delete(Product product) {
 		try {
-			if (get(product.getId()) != null) {
+			/*if (get(product.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().delete(product);
 			return true;
 		} catch (Exception e) {
@@ -49,12 +49,12 @@ SessionFactory sessionFactory;
 
 		}
 	}
-
+@Transactional
 	public boolean update(Product product) {
 		try {
-			if (get(product.getId()) != null) {
+			/*if (get(product.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().update(product);
 			return true;
 		}
@@ -64,12 +64,12 @@ SessionFactory sessionFactory;
 			return false;
 		}
 	}
-
+@Transactional
 	public Product get(String Id) {
 		return (Product) sessionFactory.getCurrentSession().get(Product.class, Id);
 
 	}
-
+@Transactional
 	public List<Product> list() {
 		String hql = "FROM Product";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);

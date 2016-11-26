@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name="Product")
 public class Product {
 	
-	@Id	
+@Id	
 private String Id;
 	
 @Column(name="name")
@@ -32,22 +32,6 @@ private String Supplier_Id;
 @Column(name="stock")
 private int stock;
 
-public MultipartFile getImage() {
-	return Image;
-}
-
-public void setImage(MultipartFile image) {
-	Image = image;
-}
-
-public String getPath() {
-	return path;
-}
-
-public void setPath(String path) {
-	this.path = path;
-}
-
 @ManyToOne(fetch=FetchType.EAGER)
 @JoinColumn(name="Category_Id",updatable=false,insertable=false,nullable=false)
 private Category category;
@@ -57,11 +41,35 @@ private Category category;
 private Supplier supplier;
 
 @Transient
-private MultipartFile Image;
+private MultipartFile image;
 
 @Transient
 private String path ="D:\\DT NIIT\\yamahaonline\\ProductImages";
 
+
+
+
+
+
+public String getPath() {
+	return path;
+}
+
+public void setPath(String path) {
+	this.path = path;
+}
+
+
+
+
+
+public MultipartFile getImage() {
+	return image;
+}
+
+public void setImage(MultipartFile image) {
+	this.image = image;
+}
 
 public String getId() {
 	return Id;
