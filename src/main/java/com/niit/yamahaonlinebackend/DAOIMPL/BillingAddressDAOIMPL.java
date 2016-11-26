@@ -1,35 +1,29 @@
-/*package com.niit.yamahaonlinebackend.DAOIMPL;
+package com.niit.yamahaonlinebackend.DAOIMPL;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.yamahaonlinebackend.DAO.BillingAddressDAO;
 import com.niit.yamahaonlinebackend.model.BillingAddress;
 
-@ComponentScan("billingaddressDAO")
+@Repository("billingaddressDAO")
 public class BillingAddressDAOIMPL implements BillingAddressDAO {
 
 	@Autowired
 	SessionFactory sessionFactory;
 	
-	
-
-	public BillingAddressDAOIMPL() {
-		super();
-	}
-
-public BillingAddressDAOIMPL(SessionFactory sessionFactory) {
+	public BillingAddressDAOIMPL(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 
+   @Transactional
 	public boolean save(BillingAddress billingaddress) {
 		try {
-			if (get(billingaddress.getId()) != null) {
+			/*if (get(billingaddress.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().save(billingaddress);
 			return true;
 		} catch (Exception e) {
@@ -38,11 +32,12 @@ public BillingAddressDAOIMPL(SessionFactory sessionFactory) {
 		}	
 	}
 
+@Transactional
 	public boolean delete(BillingAddress billingaddress) {
 		try {
-			if (get(billingaddress.getId()) != null) {
+			/*if (get(billingaddress.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().delete(billingaddress);
 			return true;
 		} catch (Exception e) {
@@ -52,9 +47,9 @@ public BillingAddressDAOIMPL(SessionFactory sessionFactory) {
 
 	}
 
+@Transactional
 	public BillingAddress get(String Id) {
 		return (BillingAddress) sessionFactory.getCurrentSession().get(BillingAddress.class, Id);
 	}
 
 }
-*/

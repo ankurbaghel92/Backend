@@ -21,7 +21,7 @@ public class UserOrderTestCase {
 	static UserOrderDAO userorderDAO;
 	
 	@Autowired
-	static UserOrder userorder;
+	static UserOrder userOrder;
 	
 	@BeforeClass
 	public static void init()
@@ -30,20 +30,22 @@ public class UserOrderTestCase {
 		context.scan("com.niit");
 		context.refresh();
 		userorderDAO = (UserOrderDAO) context.getBean("userorderDAO");
-		userorder = (UserOrder) context.getBean("userorder");
+		userOrder =  (UserOrder) context.getBean("userOrder");
 	}
 	
 	
 	@Test
-	public void CreateUserOrderTestCase()
+	public void CreateuserOrderTestCase()
 	{
-		userorder.setId("UO-001");
-		userorder.setBillingAddress_Id("billing address");
-		userorder.setShippingAddress_Id("shippingAddress");
-		userorder.setCart_Id("Cart-001");
-		userorder.setPay_method("Online");
-		boolean status= userorderDAO.save(userorder);
-		Assert.assertEquals("CreateUserOrderTestCase", true, status);
+		userOrder.setId("UO-001");
+		userOrder.setProduct_Name("Productname");
+		userOrder.setProduct_Price(567);
+		userOrder.setUser_Id("asdjksh");
+		userOrder.setBillingAddress_Id("BA_001");
+		userOrder.setShippingAddress_Id("SA_001");
+		userOrder.setPay_method("Online");
+		boolean status= userorderDAO.save(userOrder);
+		Assert.assertEquals("CreateuserOrderTestCase", true, status);
 	}
 
 }

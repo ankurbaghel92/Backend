@@ -18,10 +18,13 @@ public class UserOrder {
 
 	@Id
 	private String Id;
-
-	@Column(name = "Cart_Id")
-	private String Cart_Id;
-
+	
+	@Column(name="Product_Name")
+	private String Product_Name;
+	
+	@Column(name="Product_price")
+	private int Product_Price;
+	
 	@Column(name = "BillingAddress_Id")
 	private String BillingAddress_Id;
 
@@ -31,6 +34,19 @@ public class UserOrder {
 	@Column(name = "Pay_Method")
 	private String Pay_method;
 	
+	@Column(name="User_Id")
+	private String User_Id;
+	
+	@ManyToOne
+	@JoinColumn(name="Id",updatable=false,insertable=false,nullable=false)
+	private ShippingAddress shippingAddress;
+	
+	@ManyToOne
+	@JoinColumn(name="Id",updatable=false,insertable=false,nullable=false)
+	private BillingAddress billingAddress;
+	
+	
+	
 	
 
 	public String getId() {
@@ -39,14 +55,6 @@ public class UserOrder {
 
 	public void setId(String id) {
 		Id = id;
-	}
-
-	public String getCart_Id() {
-		return Cart_Id;
-	}
-
-	public void setCart_Id(String cart_Id) {
-		Cart_Id = cart_Id;
 	}
 
 	public String getBillingAddress_Id() {
@@ -72,5 +80,47 @@ public class UserOrder {
 	public void setPay_method(String pay_method) {
 		Pay_method = pay_method;
 	}
+
+	public String getProduct_Name() {
+		return Product_Name;
+	}
+
+	public void setProduct_Name(String product_Name) {
+		Product_Name = product_Name;
+	}
+
+	public int getProduct_Price() {
+		return Product_Price;
+	}
+
+	public void setProduct_Price(int product_Price) {
+		Product_Price = product_Price;
+	}
+
+	public String getUser_Id() {
+		return User_Id;
+	}
+
+	public void setUser_Id(String user_Id) {
+		User_Id = user_Id;
+	}
+
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
+	}
+
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
+	}
+	
+	
 
 }

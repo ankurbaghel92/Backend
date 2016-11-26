@@ -43,7 +43,7 @@ public class CategoryTestCase {
 		
 	}
 	
-	@Test
+	//@Test
 	public void DeleteCategoryTestCase()
 	{
 		category.setId("Y001");
@@ -62,7 +62,7 @@ public class CategoryTestCase {
 		
 	}
 	
-	//@Test
+	@Test
 	public void GetCategoryTestCase()
 	{
 		Assert.assertEquals("Get One Category Test Case", null, categoryDAO.get("Y001"));

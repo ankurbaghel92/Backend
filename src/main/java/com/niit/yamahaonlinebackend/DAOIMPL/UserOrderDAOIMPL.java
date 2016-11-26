@@ -3,6 +3,7 @@ package com.niit.yamahaonlinebackend.DAOIMPL;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.yamahaonlinebackend.DAO.UserOrderDAO;
 import com.niit.yamahaonlinebackend.model.UserOrder;
@@ -17,6 +18,7 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	@Transactional
 	public boolean save(UserOrder userorder) {
 		try {
 			if (get(userorder.getId()) != null) {
@@ -30,7 +32,7 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 		}
 
 	}
-
+@Transactional
 	public boolean delete(UserOrder userorder) {
 		try {
 			if (get(userorder.getId()) != null) {
@@ -45,6 +47,7 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 
 	}
 
+	@Transactional
 	public UserOrder get(String Id) {
 		return (UserOrder) sessionFactory.getCurrentSession().get(UserOrder.class, Id);
 	}

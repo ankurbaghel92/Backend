@@ -1,15 +1,14 @@
-/*package com.niit.yamahaonlinebackend.DAOIMPL;
+package com.niit.yamahaonlinebackend.DAOIMPL;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.yamahaonlinebackend.DAO.ShippingAddressDAO;
 import com.niit.yamahaonlinebackend.model.ShippingAddress;
 
-@ComponentScan("shippingaddressDAO")
+@Repository("shippingaddressDAO")
 public class ShippingAddressDAOIMPL implements ShippingAddressDAO {
 
 	@Autowired
@@ -50,4 +49,3 @@ public class ShippingAddressDAOIMPL implements ShippingAddressDAO {
 	}
 
 }
-*/

@@ -13,9 +13,11 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.yamahaonlinebackend.model.BillingAddress;
 import com.niit.yamahaonlinebackend.model.Cart;
 import com.niit.yamahaonlinebackend.model.Category;
 import com.niit.yamahaonlinebackend.model.Product;
+import com.niit.yamahaonlinebackend.model.ShippingAddress;
 import com.niit.yamahaonlinebackend.model.Supplier;
 import com.niit.yamahaonlinebackend.model.User;
 import com.niit.yamahaonlinebackend.model.UserOrder;
@@ -53,7 +55,8 @@ private Properties getHibernateProperties (){
 	sessionBuilder.addAnnotatedClass(Product.class);
 	sessionBuilder.addAnnotatedClass(UserOrder.class);
 	sessionBuilder.addAnnotatedClass(User.class);
-
+	sessionBuilder.addAnnotatedClass(BillingAddress.class);
+	sessionBuilder.addAnnotatedClass(ShippingAddress.class);
 	sessionBuilder.addAnnotatedClass(Cart.class);
 sessionBuilder.addProperties(getHibernateProperties());
 
