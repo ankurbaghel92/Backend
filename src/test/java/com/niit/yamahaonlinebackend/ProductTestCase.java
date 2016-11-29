@@ -32,7 +32,7 @@ public class ProductTestCase {
 		product = (Product) context.getBean("product");
 	}
 	
-	@Test
+	//@Test
 	public void CreateProductTestCase()
 	{
 		product.setId("P002");
@@ -46,7 +46,7 @@ boolean status = productDAO.save(product);
 		
 	}
 	
-	/*@Test
+	//@Test
 	public void DeleteProductTestCase()
 	{
 		product.setId("Y001");
@@ -55,8 +55,8 @@ boolean status = productDAO.save(product);
 	
 	}
 
-	@Test
-	public void UpdateProductTestCase()
+	//@Test
+	/*public void UpdateProductTestCase()
 	{
 		Product.setId("Y001");
 		Product.setDescription("Yamaha1223");
@@ -65,18 +65,26 @@ boolean status = productDAO.save(product);
 		Assert.assertEquals("Update Product Test Case", true, status);
 		
 	}
-	
-	@Test
+	*/
+	//@Test
 	public void GetProductTestCase()
 	{
-		Assert.assertEquals("Get One Product Test Case", null, productDAO.get("Y001"));
+		Assert.assertEquals("Get One Product Test Case", 1, productDAO.get("P003"));
 	}
 
+	
 	@Test
+	public void GetProductBynameTestCase()
+	{
+		Assert.assertEquals("Get One Product Test Case", 1, productDAO.getByName("Product3"));
+	}
+
+	
+	//@Test
 	public void GetAllProductTestCase()
 	{
 		Assert.assertEquals("Get All Product Test Case", 1, productDAO.list().size());
 		
 	}
-*/	
+
 }

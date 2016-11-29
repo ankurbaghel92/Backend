@@ -69,6 +69,14 @@ SessionFactory sessionFactory;
 		return (Product) sessionFactory.getCurrentSession().get(Product.class, Id);
 
 	}
+
+@Transactional
+public Product getByName(String name) {
+	return (Product) sessionFactory.getCurrentSession().get(Product.class, name);
+
+}
+
+
 @Transactional
 	public List<Product> list() {
 		String hql = "FROM Product";
