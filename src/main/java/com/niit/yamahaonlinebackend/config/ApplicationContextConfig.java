@@ -57,8 +57,8 @@ private Properties getHibernateProperties (){
 	sessionBuilder.addAnnotatedClass(User.class);
 	sessionBuilder.addAnnotatedClass(BillingAddress.class);
 	sessionBuilder.addAnnotatedClass(ShippingAddress.class);
-	sessionBuilder.addAnnotatedClass(Cart.class);
-sessionBuilder.addProperties(getHibernateProperties());
+sessionBuilder.addAnnotatedClass(Cart.class);
+	sessionBuilder.addProperties(getHibernateProperties());
 
 return sessionBuilder.buildSessionFactory();
 	}

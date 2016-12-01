@@ -1,47 +1,35 @@
 package com.niit.yamahaonlinebackend.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
 
-@Entity
+//@Entity
 @Component
-@Table(name="BillingAddress")
-public class BillingAddress {
+//@Table(name="BillingAddress")
+public class BillingAddress implements Serializable {
 
-	@Id
+	//@Id
 	private String Id;
 
-	@Column(name="address_line1")
+	//@Column(name="address_line1")
 	private String address_line1;
 	
-	@Column(name="address_line2")
+	//@Column(name="address_line2")
 	private String address_line2;
 	
-	@Column(name="state")
+	//@Column(name="state")
 	private String state;
 	
-	@Column(name="city")
+	//@Column(name="city")
 	private String city;
 	
-	@Column(name="pincode")
+	//@Column(name="pincode")
 	private String pincode;
-	
-	@OneToMany(mappedBy="billingAddress")
-	private Set<UserOrder> userOrder;
-	
-	
-
-	public Set<UserOrder> getUserOrder() {
-		return userOrder;
-	}
-
-	public void setUserOrder(Set<UserOrder> userOrder) {
-		this.userOrder = userOrder;
-	}
-	
+		
 
 	public String getId() {
 		return Id;

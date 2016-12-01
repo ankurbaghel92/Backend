@@ -1,9 +1,11 @@
 package com.niit.yamahaonlinebackend.model;
 
+import java.io.Serializable;
+
 import org.springframework.stereotype.Component;
 
 @Component
-public class PaymentMethod {
+public class PaymentMethod implements Serializable {
 private String paymentmethod;
 
 public String getPaymentmethod() {

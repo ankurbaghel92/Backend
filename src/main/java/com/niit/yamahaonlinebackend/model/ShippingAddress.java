@@ -1,5 +1,6 @@
 package com.niit.yamahaonlinebackend.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -7,41 +8,29 @@ import javax.persistence.*;
 
 import org.springframework.stereotype.Component;
 
-@Entity
+//@Entity
 @Component
-@Table(name="ShippingAddress")
-public class ShippingAddress {
+//@Table(name="ShippingAddress")
+public class ShippingAddress implements Serializable {
 	
-	@Id
+	//@Id
 	private String Id;
 	
-	@Column(name = "Address_Line1")
+	//@Column(name = "Address_Line1")
 	private String address_line1;
 	
-	@Column(name = "Address_Line2")
+	//@Column(name = "Address_Line2")
 	private String address_line2;
 	
-	@Column(name = "State")
+	//@Column(name = "State")
 	private String state;
 	
-	@Column(name = "City")
+	//@Column(name = "City")
 	private String city;
 	
-	@Column(name = "Pincode")
+	//@Column(name = "Pincode")
 	private String pincode;
 	
-	@OneToMany(mappedBy="shippingAddress")
-	private Set<UserOrder> userOrder;
-	
-	
-
-	public Set<UserOrder> getUserOrder() {
-		return userOrder;
-	}
-
-	public void setUserOrder(Set<UserOrder> userOrder) {
-		this.userOrder = userOrder;
-	}
 
 	public String getId() {
 		return Id;

@@ -41,9 +41,9 @@ public class UserOrderTestCase {
 		userOrder.setProduct_Name("Productname");
 		userOrder.setProduct_Price(567);
 		userOrder.setUser_Id("asdjksh");
-		userOrder.setBillingAddress_Id("BA_001");
-		userOrder.setShippingAddress_Id("SA_001");
-		userOrder.setPay_method("Online");
+		/*userOrder.setBillingAddress("BA_001");
+		userOrder.setShippingAddress("SA_001");
+	*/	//userOrder.setPay_method("Online");
 		boolean status= userorderDAO.save(userOrder);
 		Assert.assertEquals("CreateuserOrderTestCase", true, status);
 	}

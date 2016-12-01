@@ -1,5 +1,8 @@
 package com.niit.yamahaonlinebackend.DAOIMPL;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,9 +24,9 @@ public class CartDAOIMPL implements CartDAO {
 	@Transactional
 	public boolean Save(Cart cart) {
 		try {
-			if (get(cart.getId()) != null) {
+			/*if (get(cart.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().save(cart);
 			return true;
 		}
@@ -35,11 +38,10 @@ public class CartDAOIMPL implements CartDAO {
 	}
 	
 	@Transactional
-	public boolean delete(Cart cart) {
-		try {
-			if (get(cart.getId()) != null) {
-				return false;
-			}
+	public boolean delete(String Id) {
+		Cart cart = new Cart();
+		cart.setUser_Id(Id);
+		try {			
 			sessionFactory.getCurrentSession().delete(cart);
 			return true;
 		} catch (Exception e) {
@@ -54,4 +56,49 @@ public class CartDAOIMPL implements CartDAO {
 		return (Cart) sessionFactory.getCurrentSession().get(Cart.class, Id);
 	}
 
+	@Transactional
+	public List<Cart> list(String Id) {
+		String hql="FROM Cart WHERE USER_ID=:user_id";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString("user_id", Id);
+		List<Cart> list = query.list();
+		return list;
+	}
+
+	public boolean update(Cart cart) {
+		return false;
+	}
+
+	@Transactional
+	public Long get_TotalAmount(String Id) {
+		
+		String hql="select sum(price) from Cart where USER_ID=:user_id";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		query.setString("user_id", Id);
+		Long sum = (Long) query.uniqueResult();
+		return sum;
+	}
+	
+	@Transactional
+	public Integer getMaxId(){
+		
+		Integer MaxId=100;
+		try{
+			String hql="select max(id) from Cart";
+			Query query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+MaxId=(Integer) query.uniqueResult();
+}
+		catch(Exception e)
+		{
+			MaxId=100;
+			e.printStackTrace();
+		}
+
+		return (MaxId+1);
+	}
+
+
+
+	
 }
