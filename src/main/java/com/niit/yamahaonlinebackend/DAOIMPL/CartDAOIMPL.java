@@ -51,7 +51,7 @@ public class CartDAOIMPL implements CartDAO {
 	}
 
 	@Transactional
-	public Cart get(String Id) {
+	public Cart get(Integer Id) {
 
 		return (Cart) sessionFactory.getCurrentSession().get(Cart.class, Id);
 	}
@@ -99,6 +99,17 @@ MaxId=(Integer) query.uniqueResult();
 	}
 
 
+	
+	@Transactional
+	public boolean deleteByCartId(Cart cart) {
+		try {			
+			sessionFactory.getCurrentSession().delete(cart);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 	
 }

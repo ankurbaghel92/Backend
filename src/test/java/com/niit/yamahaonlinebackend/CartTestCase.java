@@ -62,8 +62,7 @@ public class CartTestCase {
 	//@Test
 	public void GetCartTestCase()
 	{
-		Assert.assertEquals("GetCartTestCase", 1, cartDAO.get("001"));
-		
+//		
 	}
 	
 	@Test
