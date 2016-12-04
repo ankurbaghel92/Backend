@@ -1,10 +1,21 @@
 package com.niit.yamahaonlinebackend.model;
 
+import javax.validation.constraints.Size;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.sun.istack.internal.NotNull;
+
 @Component
-public class Login {
+public class Login {	
+	@NotNull
+	@Size(min=6,max=30,message="Username Should be Between 6 to 30")
 	private String username;
+	
+	@NotNull
+	@Size(min=4,max=30,message="Password Should be Between 6 to 10")
 	private String password;
 	
 	public String getUsername() {

@@ -7,8 +7,10 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
@@ -33,16 +35,17 @@ private String fname;
 	private String lname;
 
 @NotBlank(message="Please Enter your Mobile Number")
+@Pattern(regexp="(^$|[0-9]{10})",message="Mobile Number should be only numbers")
 @Column(name = "mobile")
-	private String mobile;
+	private String mobile;  
 
 @Id
 @NotBlank(message="Please Enter your Email Id")
 @Column(name = "email")
 	private String email;
 
-@NotBlank(message="Please Enter your Password")
-@Size(min=5,max=10)
+@NotBlank(message="Password and Confirm Password Does not match")
+@Size(min=5,max=10,message="Password size must be between 5 to 10")
 @Column(name = "password")
 	private String password;
 
@@ -98,10 +101,16 @@ public void setRole(String role) {
 		this.email = email;
 	}
 	public String getPassword() {
+
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		if(password.equals(ComPassword))
+		{
+			this.password = password;
+		}
+		else
+			this.password=null;
 	}
 	
 	
