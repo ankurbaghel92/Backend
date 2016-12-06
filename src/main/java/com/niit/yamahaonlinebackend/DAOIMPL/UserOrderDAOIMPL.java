@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.yamahaonlinebackend.DAO.UserOrderDAO;
-import com.niit.yamahaonlinebackend.model.UserOrder;
+import com.niit.yamahaonlinebackend.model.Order;
 
 @Repository("userorderDAO")
 public class UserOrderDAOIMPL implements UserOrderDAO {
@@ -19,7 +19,7 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 	}
 
 	@Transactional
-	public boolean save(UserOrder userorder) {
+	public boolean save(Order userorder) {
 		try {
 			if (get(userorder.getId()) != null) {
 				return false;
@@ -33,7 +33,7 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 
 	}
 @Transactional
-	public boolean delete(UserOrder userorder) {
+	public boolean delete(Order userorder) {
 		try {
 			if (get(userorder.getId()) != null) {
 				return false;
@@ -48,8 +48,8 @@ public class UserOrderDAOIMPL implements UserOrderDAO {
 	}
 
 	@Transactional
-	public UserOrder get(String Id) {
-		return (UserOrder) sessionFactory.getCurrentSession().get(UserOrder.class, Id);
+	public Order get(String Id) {
+		return (Order) sessionFactory.getCurrentSession().get(Order.class, Id);
 	}
 
 }

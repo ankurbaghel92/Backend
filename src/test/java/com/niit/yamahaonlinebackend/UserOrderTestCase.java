@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.yamahaonlinebackend.DAO.UserOrderDAO;
-import com.niit.yamahaonlinebackend.model.UserOrder;
+import com.niit.yamahaonlinebackend.model.Order;
 
 import junit.framework.Assert;
 
@@ -21,7 +21,7 @@ public class UserOrderTestCase {
 	static UserOrderDAO userorderDAO;
 	
 	@Autowired
-	static UserOrder userOrder;
+	static Order userOrder;
 	
 	@BeforeClass
 	public static void init()
@@ -30,7 +30,7 @@ public class UserOrderTestCase {
 		context.scan("com.niit");
 		context.refresh();
 		userorderDAO = (UserOrderDAO) context.getBean("userorderDAO");
-		userOrder =  (UserOrder) context.getBean("userOrder");
+		userOrder =  (Order) context.getBean("userOrder");
 	}
 	
 	

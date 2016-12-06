@@ -9,35 +9,33 @@ import javax.persistence.*;
 import org.springframework.stereotype.Component;
 
 //@Entity
-@Component
 //@Table(name="ShippingAddress")
+
+@Component
 public class ShippingAddress implements Serializable {
 	
-	//@Id
-	private String Id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	
-	//@Column(name = "Address_Line1")
 	private String address_line1;
 	
-	//@Column(name = "Address_Line2")
 	private String address_line2;
 	
-	//@Column(name = "State")
 	private String state;
 	
-	//@Column(name = "City")
 	private String city;
 	
-	//@Column(name = "Pincode")
 	private String pincode;
 	
-
-	public String getId() {
-		return Id;
-	}
-
-	public void setId(String id) {
-		Id = id;
+	
+	
+	
+	@Override
+	public String toString() {
+		return "ShippingAddress [" + address_line1 + "," + address_line2 + ","	+ state + "," + city + "," + pincode + "]";
 	}
 
 	public String getAddress_line1() {

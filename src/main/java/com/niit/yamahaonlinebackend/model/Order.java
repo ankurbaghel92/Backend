@@ -2,6 +2,7 @@ package com.niit.yamahaonlinebackend.model;
 
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -9,18 +10,33 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 //@Entity
-@Component
 //@Table(name="UserOrder")
-public class UserOrder implements Serializable {
+
+@Component
+public class Order implements Serializable {
 	
-	public UserOrder()
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+
+
+	public Order()
 	{
 		System.out.println("UserOrder is created");
+		Id="one";
 	}
 
 	
 	//@Id
 	private String Id;
+	
+	private String sa;
+
+	private String ba;
+
 	
 	//@Column(name="Product_Name")
 	private String Product_Name;
@@ -28,23 +44,28 @@ public class UserOrder implements Serializable {
 	//@Column(name="Product_price")
 	private int Product_Price;
 	
+/*	@Column(name="User_Id")
+*/	private String User_Id;
+	
+	
 
 	//@Column(name = "Pay_Method")
+	
+    @Autowired
 	private PaymentMethod paymentMethod;
 	
-	//@Column(name="User_Id")
-	private String User_Id;
-	
+	//
 	//@Column(name="ShippingAddress")
+	@Autowired
 	private ShippingAddress shippingAddress;
 	
 	//@Column(name="BillingAddress")
+	@Autowired
 	private BillingAddress billingAddress;
-	
-	
-	
-	
 
+	
+	
+	
 	public String getId() {
 		return Id;
 	}
@@ -78,10 +99,10 @@ public class UserOrder implements Serializable {
 		User_Id = user_Id;
 	}
 
+
 	public ShippingAddress getShippingAddress() {
 		return shippingAddress;
 	}
-
 	public void setShippingAddress(ShippingAddress shippingAddress) {
 		this.shippingAddress = shippingAddress;
 	}
@@ -102,5 +123,24 @@ public class UserOrder implements Serializable {
 		this.paymentMethod = paymentMethod;
 	}
 
+	public String getSa() {
+		return sa;
+	}
 
+	public void setSa(String sa) {
+		this.sa = sa;
+	}
+
+	public String getBa() {
+		return ba;
+	}
+
+	public void setBa(String ba) {
+		this.ba = ba;
+	}
+
+
+	
+	
+	
 }
