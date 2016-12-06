@@ -37,7 +37,7 @@ public class BillingAddressTestCase {
 	@Test
 	public void AddBillingAddressTestCase()
 	{
-		billingAddress.setId("BA_001");
+		//billingAddress.setId("BA_001");
 		billingAddress.setAddress_line1("QTR NO 8/3");
 		billingAddress.setAddress_line2("Type-II Rangehills");
 		billingAddress.setCity("Pune");

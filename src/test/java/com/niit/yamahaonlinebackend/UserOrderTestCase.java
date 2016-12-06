@@ -37,7 +37,7 @@ public class UserOrderTestCase {
 	@Test
 	public void CreateuserOrderTestCase()
 	{
-		userOrder.setId("UO-001");
+		//userOrder.setId("UO-001");
 		userOrder.setProduct_Name("Productname");
 		userOrder.setProduct_Price(567);
 		userOrder.setUser_Id("asdjksh");

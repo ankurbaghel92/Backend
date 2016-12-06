@@ -13,6 +13,13 @@ public class PaymentMethod implements Serializable {
 	
 private String paymentmethod;
 
+
+
+@Override
+public String toString() {
+	return "PaymentMethod [" + paymentmethod + "]";
+}
+
 public String getPaymentmethod() {
 	return paymentmethod;
 }

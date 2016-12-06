@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.*;
 
@@ -21,14 +22,6 @@ public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 
-
-
-	public Order()
-	{
-		System.out.println("UserOrder is created");
-		Id="one";
-	}
-
 	
 	//@Id
 	private String Id;
@@ -36,7 +29,8 @@ public class Order implements Serializable {
 	private String sa;
 
 	private String ba;
-
+	
+	private String pm;
 	
 	//@Column(name="Product_Name")
 	private String Product_Name;
@@ -64,6 +58,11 @@ public class Order implements Serializable {
 	private BillingAddress billingAddress;
 
 	
+	public Order()
+	{
+		System.out.println("UserOrder is created");
+		this.Id= "Yamaha_Online" + UUID.randomUUID();
+	}
 	
 	
 	public String getId() {
@@ -137,6 +136,16 @@ public class Order implements Serializable {
 
 	public void setBa(String ba) {
 		this.ba = ba;
+	}
+
+
+	public String getPm() {
+		return pm;
+	}
+
+
+	public void setPm(String pm) {
+		this.pm = pm;
 	}
 
 

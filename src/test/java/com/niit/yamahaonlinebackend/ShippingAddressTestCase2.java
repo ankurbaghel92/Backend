@@ -40,7 +40,7 @@ public class ShippingAddressTestCase2 {
 	@Test
 	public void AddShippingAddressTestCase()
 	{
-		shippingAddress.setId("SA_001");
+		//shippingAddress.setId("SA_001");
 		shippingAddress.setAddress_line1("QTR NO 8/3");
 		shippingAddress.setAddress_line2("Type-II Rangehills");
 		shippingAddress.setCity("Pune");

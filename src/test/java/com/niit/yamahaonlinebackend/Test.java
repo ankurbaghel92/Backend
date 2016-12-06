@@ -16,7 +16,7 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		/*AnnotationConfigApplicationContext c = new AnnotationConfigApplicationContext();
+	/*	AnnotationConfigApplicationContext c = new AnnotationConfigApplicationContext();
 				c.refresh();
 
 		Object o1 = b.getBean("user");
@@ -29,7 +29,7 @@ public class Test {
 		c.getBean("user");
 		System.out.println("User Instance is Created");
 
-*/	
+	
 	
 	StringTokenizer st = new StringTokenizer("one two one two three four two six eight one four");
 	ArrayList<String> al = new ArrayList<String>();
@@ -37,7 +37,7 @@ public class Test {
 	{
 al.add(st.nextToken());
 	}
-	/*for(int i =0;i<al.size();i++)
+	for(int i =0;i<al.size();i++)
 	{
 		String temp = al.get(i);
 		for(int j=0;j<al.size();j++)
@@ -60,7 +60,7 @@ al.add(st.nextToken());
 	System.out.println(al.get(i) +": " +java.util.Collections.frequency(al, al.get(i)));
 	
 	}
-*/		Set<String> unique = new HashSet<String>(al);
+		Set<String> unique = new HashSet<String>(al);
 	TreeMap<String, Integer> mt = new TreeMap<String, Integer>();	
 
 	for(String temp:unique)
@@ -75,5 +75,10 @@ System.out.println(mt.descendingMap());
 	
 	}
 	
-
+*/
+		
+		System.out.println(UUID.randomUUID());
+		
+		
+}
 }

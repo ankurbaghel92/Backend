@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.niit.yamahaonlinebackend.model.BillingAddress;
 import com.niit.yamahaonlinebackend.model.Cart;
 import com.niit.yamahaonlinebackend.model.Category;
+import com.niit.yamahaonlinebackend.model.Contactus;
 import com.niit.yamahaonlinebackend.model.Order;
 import com.niit.yamahaonlinebackend.model.Product;
 import com.niit.yamahaonlinebackend.model.ShippingAddress;
@@ -57,6 +58,8 @@ private Properties getHibernateProperties (){
 	sessionBuilder.addAnnotatedClass(User.class);
 	sessionBuilder.addAnnotatedClass(BillingAddress.class);
 	sessionBuilder.addAnnotatedClass(ShippingAddress.class);
+	sessionBuilder.addAnnotatedClass(Contactus.class);
+
 sessionBuilder.addAnnotatedClass(Cart.class);
 	sessionBuilder.addProperties(getHibernateProperties());
 

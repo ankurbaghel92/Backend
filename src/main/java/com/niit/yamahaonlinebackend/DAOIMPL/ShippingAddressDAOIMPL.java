@@ -20,9 +20,9 @@ public class ShippingAddressDAOIMPL implements ShippingAddressDAO {
 @Transactional
 	public boolean save(ShippingAddress shippingaddress) {
 		try {
-			if (get(shippingaddress.getId()) != null) {
+			/*if (get(shippingaddress.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().save(shippingaddress);
 			return true;
 		} catch (Exception e) {
@@ -33,9 +33,9 @@ public class ShippingAddressDAOIMPL implements ShippingAddressDAO {
 @Transactional
 	public boolean delete(ShippingAddress shippingaddress) {
 		try {
-			if (get(shippingaddress.getId()) != null) {
+			/*if (get(shippingaddress.getId()) != null) {
 				return false;
-			}
+			}*/
 			sessionFactory.getCurrentSession().delete(shippingaddress);
 			return true;
 		} catch (Exception e) {
