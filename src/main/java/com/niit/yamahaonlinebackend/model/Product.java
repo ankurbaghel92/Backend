@@ -30,7 +30,7 @@ private String Category_Id;
 private String Supplier_Id;
 
 @Column(name="stock")
-private int stock;
+private long stock;
 
 @ManyToOne(fetch=FetchType.EAGER)
 @JoinColumn(name="Category_Id",updatable=false,insertable=false,nullable=false)
@@ -111,11 +111,11 @@ public void setSupplier_Id(String supplier_Id) {
 	Supplier_Id = supplier_Id;
 }
 
-public int getStock() {
+public long getStock() {
 	return stock;
 }
 
-public void setStock(int stock) {
+public void setStock(long stock) {
 	this.stock = stock;
 }
 
